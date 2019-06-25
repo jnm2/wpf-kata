@@ -19,12 +19,12 @@
         </Grid.RowDefinitions>
 
         <TextBlock>First name:</TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" />
 
         <TextBlock Grid.Row="1" Grid.Column="0">Last name:</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" />
 
         <TextBlock Grid.Row="2" Grid.Column="0">Age:</TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="1"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Age}" />
     </Grid>
 </Window>
