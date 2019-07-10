@@ -6,25 +6,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+    <TabControl>
+        <TabItem Header="Kata 1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-        <TextBlock>First name:</TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" />
+                <TextBlock>First name:</TextBlock>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" />
 
-        <TextBlock Grid.Row="1" Grid.Column="0">Last name:</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" />
+                <TextBlock Grid.Row="1" Grid.Column="0">Last name:</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" />
 
-        <TextBlock Grid.Row="2" Grid.Column="0">Age:</TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Age}" />
-    </Grid>
+                <TextBlock Grid.Row="2" Grid.Column="0">Age:</TextBlock>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Age}" />
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>
