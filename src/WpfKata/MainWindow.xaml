@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfKata"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
     <TabControl>
-        <TabItem Header="Kata 1">
+        <TabItem Header="1. Grid">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -28,6 +29,25 @@
 
                 <TextBlock Grid.Row="2" Grid.Column="0">Age:</TextBlock>
                 <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Age}" />
+            </Grid>
+        </TabItem>
+        <TabItem Header="2. Select on focus" local:AttachedProperties.SelectAllOnFocus="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock>First name:</TextBlock>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0">Last name:</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" />
             </Grid>
         </TabItem>
     </TabControl>
