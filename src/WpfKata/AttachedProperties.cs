@@ -8,7 +8,7 @@ namespace WpfKata
             "SelectAllOnFocus",
             typeof(bool),
             typeof(AttachedProperties),
-            new PropertyMetadata(default(bool)));
+            new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.Inherits));
 
         /// <summary>Helper for getting <see cref="SelectAllOnFocusProperty"/> from <paramref name="element"/>.</summary>
         /// <param name="element"><see cref="DependencyObject"/> to read <see cref="SelectAllOnFocusProperty"/> from.</param>
