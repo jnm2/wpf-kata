@@ -16,12 +16,27 @@ namespace WpfKata
             if (d is not TextBox textBox) return;
 
             if (e.NewValue is true)
-                textBox.GotFocus += TextBox_GotFocus;
+            {
+                textBox.GotFocus += TextBox_GotKeyboardFocus;
+                textBox.PreviewMouseDown += TextBox_PreviewMouseDown;
+            }
             else
-                textBox.GotFocus -= TextBox_GotFocus;
+            {
+                textBox.GotFocus -= TextBox_GotKeyboardFocus;
+                textBox.PreviewMouseDown -= TextBox_PreviewMouseDown;
+            }
         }
 
-        private static void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        private static void TextBox_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if ((TextBox)sender is { IsFocused: false } textBox)
+            {
+                textBox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private static void TextBox_GotKeyboardFocus(object sender, RoutedEventArgs e)
         {
             ((TextBox)sender).SelectAll();
         }
