@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace WpfKata
 {
@@ -8,7 +9,22 @@ namespace WpfKata
             "SelectAllOnFocus",
             typeof(bool),
             typeof(AttachedProperties),
-            new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.Inherits));
+            new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.Inherits, OnSelectAllOnFocusChanged));
+
+        private static void OnSelectAllOnFocusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is not TextBox textBox) return;
+
+            if (e.NewValue is true)
+                textBox.GotFocus += TextBox_GotFocus;
+            else
+                textBox.GotFocus -= TextBox_GotFocus;
+        }
+
+        private static void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            ((TextBox)sender).SelectAll();
+        }
 
         /// <summary>Helper for getting <see cref="SelectAllOnFocusProperty"/> from <paramref name="element"/>.</summary>
         /// <param name="element"><see cref="DependencyObject"/> to read <see cref="SelectAllOnFocusProperty"/> from.</param>
