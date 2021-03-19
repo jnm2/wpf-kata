@@ -17,17 +17,17 @@ namespace WpfKata
 
             if (e.NewValue is true)
             {
-                textBox.GotFocus += TextBox_GotKeyboardFocus;
-                textBox.PreviewMouseDown += TextBox_PreviewMouseDown;
+                textBox.GotFocus += OnTextBoxGotFocus;
+                textBox.PreviewMouseDown += OnTextBoxPreviewMouseDown;
             }
             else
             {
-                textBox.GotFocus -= TextBox_GotKeyboardFocus;
-                textBox.PreviewMouseDown -= TextBox_PreviewMouseDown;
+                textBox.GotFocus -= OnTextBoxGotFocus;
+                textBox.PreviewMouseDown -= OnTextBoxPreviewMouseDown;
             }
         }
 
-        private static void TextBox_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private static void OnTextBoxPreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if ((TextBox)sender is { IsFocused: false } textBox)
             {
@@ -36,7 +36,7 @@ namespace WpfKata
             }
         }
 
-        private static void TextBox_GotKeyboardFocus(object sender, RoutedEventArgs e)
+        private static void OnTextBoxGotFocus(object sender, RoutedEventArgs e)
         {
             ((TextBox)sender).SelectAll();
         }
